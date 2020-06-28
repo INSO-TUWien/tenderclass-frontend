@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { MyDatePickerModule } from 'mydatepicker';
+import { NewComponent } from './components/new/new.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,14 @@ import { MyDatePickerModule } from 'mydatepicker';
     HeaderComponent,
     FooterComponent,
     RecommendationComponent,
-    OverviewComponent
+    OverviewComponent,
+    NewComponent
   ],
   imports: [
     MyDatePickerModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import { Tender } from '../../dtos/tender';
-import { LanguageEntity } from '../../dtos/languageentity';
 import { TenderService } from '../../service/tender.service';
-import {IMyDpOptions} from 'mydatepicker';
 import {IMyDateModel} from 'mydatepicker';
 
 @Component({
@@ -31,7 +29,7 @@ export class OverviewComponent implements OnInit {
 
     const zeroPad = (num, places) => String(num).padStart(places, '0')
 
-    var dateStr: string = this.date.year + "" + zeroPad(this.date.month,2) + "" + zeroPad(this.date.day,2)
+    let dateStr: string = this.date.year + "" + zeroPad(this.date.month,2) + "" + zeroPad(this.date.day,2)
 
     this.tenderService.getAll(dateStr).subscribe(
           (t: Tender[]) => {
