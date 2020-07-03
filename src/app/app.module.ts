@@ -9,6 +9,7 @@ import { RecommendationComponent } from './components/recommendation/recommendat
 import { OverviewComponent } from './components/overview/overview.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import { NewComponent } from './components/new/new.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NewComponent } from './components/new/new.component';
     MyDatePickerModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

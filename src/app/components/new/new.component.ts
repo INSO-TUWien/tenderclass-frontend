@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CreateModelCriteria} from "../../dtos/createModelCriteria";
+import {TenderService} from "../../service/tender.service";
 
 @Component({
   selector: 'app-new',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  private readonly createModelCriteria: CreateModelCriteria;
+
+  constructor(
+    private tenderService: TenderService
+  ) {
+    this.createModelCriteria = new CreateModelCriteria();
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    console.log(this.createModelCriteria);
+    this.tenderService.newModel(this.createModelCriteria).subscribe((res) => console.log(res), () => {});
   }
 
 }

@@ -1,1 +1,36 @@
-<p>new works!</p>
+<div class="container">
+  <h1>Hero Form</h1>
+  <form #createNewModel="ngForm">
+
+    <h3>Positive examples</h3>
+    <div class="form-group">
+      <label for="posNum">Amount</label>
+      <input type="number" class="form-control" id="posNum"
+             required
+             [(ngModel)]="createModelCriteria.pos_number" name="posNum">
+    </div>
+    <div class="form-group">
+      <label for="posFilter">Criteria</label>
+      <input type="text" class="form-control" id="posFilter"
+             required
+             [(ngModel)]="createModelCriteria.pos_search_criteria" name="posFilter">
+    </div>
+
+    <h3>Positive examples</h3>
+    <div class="form-group">
+      <label for="negNum">Amount</label>
+      <input type="number" class="form-control" id="negNum"
+             required
+             [(ngModel)]="createModelCriteria.neg_number" name="negNum">
+    </div>
+    <div class="form-group">
+      <label for="negFilter">Criteria</label>
+      <input type="text" class="form-control" id="negFilter"
+             required
+             [(ngModel)]="createModelCriteria.neg_search_criteria" name="negFilter">
+    </div>
+
+    <button (click)="onSubmit()" type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+</div>
