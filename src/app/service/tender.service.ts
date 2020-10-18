@@ -15,6 +15,7 @@ export class TenderService {
   private recommendationUri: string = this.backendHost + '/web/recommendations';
   private allUri: string = this.backendHost;
   private newUri = this.backendHost + '/model/new';
+  private webUri = this.backendHost + "/web"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -29,7 +30,7 @@ export class TenderService {
       let params = new HttpParams();
       params = params.set("date", dateStr);
       params = params.set("count", "50");
-      return this.httpClient.get<Tender[]>(this.allUri, {params: params} );
+      return this.httpClient.get<Tender[]>(this.webUri, {params: params} );
   }
 
   newModel(createModelCriteria: CreateModelCriteria) : Observable<any> {
