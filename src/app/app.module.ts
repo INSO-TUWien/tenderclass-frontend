@@ -8,7 +8,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { MyDatePickerModule } from 'mydatepicker';
-import { NewComponent } from './components/new/new.component';
 import {FormsModule} from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +21,6 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     RecommendationComponent,
     OverviewComponent,
-    NewComponent
   ],
   imports: [
     MyDatePickerModule,
