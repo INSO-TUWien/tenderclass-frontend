@@ -23,6 +23,7 @@
     "bootstrap": "^4.5.0",
     "jquery": "^3.4.1",
     "mydatepicker": "^2.6.8",
+    "ngx-spinner": "^8.1.0",
     "ngx-toastr": "^13.1.0",
     "popper": "^1.0.1",
     "rxjs": "~6.4.0",
