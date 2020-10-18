@@ -9,9 +9,10 @@ import {NgxSpinnerService} from "ngx-spinner";
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
+
 export class OverviewComponent implements OnInit {
 
-  date: any = { date: { year: 2020, month: 1, day: 20 } };
+  date: any = { date: { year: 0, month: 0, day: 0 } };
 
   @Output() tenders: Tender[] = [];
 
@@ -40,7 +41,7 @@ export class OverviewComponent implements OnInit {
 
     this.tenderService.getAll(dateStr).subscribe(
           (t: Tender[]) => {
-             this.tenders = t;
+            this.tenders = t;
             this.spinner.hide();
            },
            error => {
