@@ -5,8 +5,8 @@ export class Tender {
     public id: string,
     public cpvs: string[],
     public languageentities: LanguageEntity[],
-    original_lang: string,
-    original_lang_entity: LanguageEntity
+    public original_lang: string,
+    public original_lang_entity: LanguageEntity
     ) {
   }
 }
