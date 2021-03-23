@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Tender } from '../dtos/tender';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {server_url} from "../config";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TenderService {
 
-  private backendHost = "http://127.0.0.1:5000/api/v1/web";
+  private backendHost = server_url;
 
-  private recommendationUri: string = this.backendHost + '/recommendations';
-  private allUri: string = this.backendHost;
+  private recommendationUri: string = this.backendHost + '/web/recommendations';
+  private webUri = this.backendHost + "/web"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,7 +27,6 @@ export class TenderService {
       let params = new HttpParams();
       params = params.set("date", dateStr);
       params = params.set("count", "50");
-      return this.httpClient.get<Tender[]>(this.allUri, {params: params} );
-    }
-
+      return this.httpClient.get<Tender[]>(this.webUri, {params: params} );
+  }
 }

@@ -1,32 +1,23 @@
-import { Component, OnInit, Output, NgModule } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import { Tender } from '../../dtos/tender';
-import { LanguageEntity } from '../../dtos/languageentity';
 import { TenderService } from '../../service/tender.service';
-import {IMyDpOptions} from 'mydatepicker';
 import {IMyDateModel} from 'mydatepicker';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgxSpinnerService} from "ngx-spinner";
 
 @Component({
   selector: 'app-recommendation',
   templateUrl: './recommendation.component.html',
-  styleUrls: ['./recommendation.component.scss']
-})
-@NgModule({
-  imports: [
-    FormsModule,
-    ReactiveFormsModule
-  ],
+  styleUrls: ['./recommendation.component.scss'],
+  providers:  [ TenderService ]
 })
 export class RecommendationComponent implements OnInit {
 
-  date: any = { year: 2020, month: 1, day: 20 };
-
-  // le: LanguageEntity[] = [{ language: "DE", title: "Bauarbeiten", description: "Die Landstrasse soll erneuert werden."}]
-  // tenders: Tender[] = [ { id: "EU01-123456", cpvs: ["72000000"], languageentities: this.le}];
+  date: any = { year: 0, month: 0, day: 0 };
 
   @Output() tenders: Tender[] = [];
 
-  constructor(private tenderService: TenderService) { }
+  constructor(private tenderService: TenderService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.loadTenders();
@@ -39,17 +30,23 @@ export class RecommendationComponent implements OnInit {
 
 
   loadTenders() {
+    this.spinner.show();
 
     const zeroPad = (num, places) => String(num).padStart(places, '0')
+    let dateStr: string = this.date.year + "" + zeroPad(this.date.month,2) + "" + zeroPad(this.date.day,2)
 
-    var dateStr: string = this.date.year + "" + zeroPad(this.date.month,2) + "" + zeroPad(this.date.day,2)
+    //null date
+    if(/^0*$/.test(dateStr)) {
+      dateStr = undefined
+    }
 
     this.tenderService.getRecommendations(dateStr).subscribe(
           (t: Tender[]) => {
-             this.tenders = t;
+            this.tenders = t;
+            this.spinner.hide();
            },
            error => {
-
+             this.spinner.hide();
            }
         );
   }

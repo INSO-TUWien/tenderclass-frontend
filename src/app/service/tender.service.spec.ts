@@ -1,12 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-
-import { TenderRecommendationService } from './service/tender-recommendation.service';
+import {TenderService} from "./tender.service";
 
 describe('TenderRecommendationService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TenderRecommendationService = TestBed.get(TenderRecommendationService);
+    const service: TenderService = TestBed.get(TenderService);
     expect(service).toBeTruthy();
   });
 });

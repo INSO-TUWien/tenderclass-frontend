@@ -8,6 +8,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { MyDatePickerModule } from 'mydatepicker';
+import {FormsModule} from "@angular/forms";
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import {NgxSpinnerModule} from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -15,13 +21,18 @@ import { MyDatePickerModule } from 'mydatepicker';
     HeaderComponent,
     FooterComponent,
     RecommendationComponent,
-    OverviewComponent
+    OverviewComponent,
   ],
   imports: [
     MyDatePickerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

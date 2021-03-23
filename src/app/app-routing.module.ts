@@ -5,7 +5,7 @@ import { OverviewComponent } from './components/overview/overview.component'
 
 const routes: Routes = [
   {path: 'recommendation', component: RecommendationComponent},
-  {path: 'overview', component: OverviewComponent},
+  {path: 'overview', component: OverviewComponent}
 ];
 
 @NgModule({
